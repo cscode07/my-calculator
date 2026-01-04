@@ -5,3 +5,10 @@ def show_menu():
     print("3. Multiplication (*)")
     print("4. Division (/)")
     print("5. Exit")
+
+    def get_number(message):
+    while True:
+        try:
+            return float(input(message))
+        except ValueError:
+            print("❌ Please enter a valid number.")
