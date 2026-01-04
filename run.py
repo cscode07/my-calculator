@@ -6,6 +6,7 @@ def show_menu():
     print("4. Division (/)")
     print("5. Exit")
 
+
 def get_number(message):
     while True:
         try:
@@ -25,7 +26,8 @@ def calculate(option, num1, num2):
         if num2 == 0:
             return "❌ Error: division by zero."
         return num1 / num2
-    
+
+
 def main():
     print("Welcome to the Python Calculator!")
 
@@ -48,4 +50,5 @@ def main():
         print(f"Result: {result}")
 
 
-main()
+if __name__ == "__main__":
+    main()
