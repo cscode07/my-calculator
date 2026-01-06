@@ -51,7 +51,6 @@ def main():
             print(f"Result: {result}")
 
     except EOFError:
-        # Required for Heroku mock terminal
         print("\nSession ended.")
 
 if __name__ == "__main__":
