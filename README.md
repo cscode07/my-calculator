@@ -112,8 +112,6 @@ Tested successfully on:
  
 ## Deployment
 
-The live link can be found here - (https://cscode07.github.io/Memory-Game/)
-
 Technologies Used
 - Python 3
 - Python Essentials Template
@@ -130,6 +128,7 @@ Technologies Used
 - Logic inspired by classic calculator programs used in teaching Python fundamentals.
 
 ### Media
+
 
 
 
