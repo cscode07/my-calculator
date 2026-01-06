@@ -13,16 +13,18 @@ def get_number(message):
             return float(input(message))
         except ValueError:
             print("❌ Please enter a valid number.")
+        except EOFError:
+            raise
 
 
 def calculate(option, num1, num2):
     if option == "1":
         return num1 + num2
-    elif option == "2":
+    if option == "2":
         return num1 - num2
-    elif option == "3":
+    if option == "3":
         return num1 * num2
-    elif option == "4":
+    if option == "4":
         if num2 == 0:
             return "❌ Error: division by zero."
         return num1 / num2
@@ -31,8 +33,8 @@ def calculate(option, num1, num2):
 def main():
     print("Welcome to the Python Calculator!")
 
-    try:
-        while True:
+    while True:
+        try:
             show_menu()
             option = input("Choose an option (1-5): ")
 
@@ -50,8 +52,10 @@ def main():
             result = calculate(option, num1, num2)
             print(f"Result: {result}")
 
-    except EOFError:
-        print("\nSession ended.")
+        except EOFError:
+            print("\nSession ended.")
+            break
+
 
 if __name__ == "__main__":
     main()
