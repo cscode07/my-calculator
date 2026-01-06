@@ -127,7 +127,7 @@ Technologies Used
 - All code written by me, except standard Python documentation references.  
 - Logic inspired by classic calculator programs used in teaching Python fundamentals.
 
-### Media
+
 
 
 
