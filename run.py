@@ -1,15 +1,17 @@
+# run.py
+
 from flask import Flask, request, jsonify
+import os   # necessário para pegar a porta do Heroku
 
 app = Flask(__name__)
 
 # ---------------------------
-# Calculator logic function
+# Calculator logic
 # ---------------------------
 def calculate_logic(option, num1=None, num2=None):
     """
-    option: "1"-"4" (operation)
-    num1, num2: numbers (int or float)
-    Returns result or error message
+    Receives an option ("1"-"4") and two numbers.
+    Returns result or error message.
     """
     try:
         num1 = float(num1)
@@ -30,7 +32,8 @@ def calculate_logic(option, num1=None, num2=None):
     else:
         return "❌ Invalid option"
 
-
+# ---------------------------
+# API routes
 # ---------------------------
 @app.route("/")
 def index():
@@ -57,6 +60,9 @@ def calculate():
     result = calculate_logic(option, num1, num2)
     return jsonify({"result": result})
 
-
+# ---------------------------
+# Run locally or on Heroku
+# ---------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Heroku fornece a porta
+    app.run(host="0.0.0.0", port=port, debug=True)
