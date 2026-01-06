@@ -43,54 +43,31 @@ Chose the second number.
 
 
 
-- __Second Number__
+- __Exit Option__
   
-Chose the second number.
+- Option 5 allows the user to safely exit the calculator.
+- Displays a friendly goodbye message.
  
-![Number2](https://github.com/cscode07/my-calculator/blob/main/media/step3.png)
+![Result](https://github.com/cscode07/my-calculator/blob/main/media/full%20example.png)
 
-
-
-- __Fully Responsive Layout__
-
--Desktop/Tablet: Player 1 panel – Game Board – Player 2 panel
-
--Mobile: Player 1 and Player 2 appear on top, and the board is below
-
--Achieved with CSS Grid and Media Queries.
 
 
 - __Features Left to Implement__
 
--Sound effects for flipping and matching cards
-
--Timer and time-based scoring
-
--Difficulty selection (e.g., 16, 24, 30 cards)
-
--Save scores in localStorage
-
--Animation improvements for card flipping
-
--“Best of 3 / Best of 5” match tracker.
-  
+- Extended operations (exponentiation, modulo)
+- History of past calculations
+- Option to use in a graphical interface (outside of terminal template)
+- Additional error handling for edge cases (e.g., very large numbers)
 
 ## User Stories
--User1: I want to enter my name and track my score.
+- User1: I want to perform basic arithmetic operations quickly.
+  
+- User2: I want to know when I enter invalid input.
+  
+- User3 (Student): I want a simple, terminal-based calculator to practice Python.
+  
+- User4 (Beginner): I want clear instructions in the terminal for each operation.  
 
--User2: I want to compete and see who wins most matches.
-
--User3 (Casual gamer): I want a simple game that is fun and easy to understand.
-
--User4 (Mobile user): I want the layout to look clean on my phone.
-
--User5 (teacher) : I want a basic logic game suitable for kids.
-
-## Wireframes
-
--https://github.com/cscode07/Memory-Game/blob/main/assets/wireframe0.png
-
--https://github.com/cscode07/Memory-Game/blob/main/assets/wireframe1.png
 
 
 ## Testing 
@@ -98,27 +75,24 @@ Chose the second number.
 
 ### Validator Testing 
 
-- HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/#validate_by_input)
-- CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
-- JS
-  - No errors were found when passing through the official [(JSHint JavaScript) validator](https://jshint.com/)
- 
-- Accessibility
-![Accessibility](https://github.com/cscode07/Memory-Game/blob/main/assets/lighthouse.png)
+- Python
+  - No errors were returned when passing through the official [PEP8CI](https://pep8ci.herokuapp.com/)
+
+![Pep8](https://github.com/cscode07/my-calculator/blob/main/media/pep8.png)
 
 
 ### Manual Testing 
 
-| Feature            | Test Performed               | Expected Outcome                   | Result      |
-| ------------------ | ---------------------------- | ---------------------------------- | ----------- |
-| Card Flip          | Click card                   | Card flips and shows image         | ✅ Pass     | 
-| Match check        | Flip two matching cards      | Cards stay flipped + score changes | ✅ Pass     | 
-| Restart Round      | Click button                 | Board resets & totals stay         | ✅ Pass     | 
-| Reset All          | Click button                 | Everything resets                  | ✅ Pass     | 
-| Responsive layout  | Resize device                | Layout adapts                      | ✅ Pass     |
-| Player input       | Type name                    | Name stays visible                 | ✅ Pass     |
+| Feature            | Test Performed                     | Expected Outcome                 | Result      |
+| ------------------ | --------------------------------- | --------------------------------  | ----------- |
+| Addition           | Enter 1, numbers 10 & 5           | Result = 15                       | ✅ Pass     |
+| Subtraction        | Enter 2, numbers 20 & 8           | Result = 12                       | ✅ Pass     |
+| Multiplication     | Enter 3, numbers 6 & 7            | Result = 42                       | ✅ Pass     |
+| Division           | Enter 4, numbers 12 & 4           | Result = 3                        | ✅ Pass     |
+| Division by zero   | Enter 4, numbers 10 & 0           | Error message displayed           | ✅ Pass     |
+| Invalid input      | Enter letters instead of numbers  | Error message displayed           | ✅ Pass     |
+| Exit               | Enter 5                           | Goodbye message displayed         | ✅ Pass     |
+
 
 ### Browser Compatibility
 
@@ -130,21 +104,21 @@ Tested successfully on:
 
  ### Device Responsiveness
 
-Checked using Chrome DevTools:
--iPhone SE, iPhone 12, Galaxy S8
--iPad
--Desktop (1366px, 1440px, 1920px)
-All layouts displayed as expected.
+- The mock terminal provided by the template works on:
+  - iPhone SE, iPhone 16
+  - iPad
+  - Desktop (1366px, 1440px, 1920px)
+- Layout displays correctly in all devices supported by the template.
  
 ## Deployment
 
 The live link can be found here - (https://cscode07.github.io/Memory-Game/)
 
 Technologies Used
--HTML5
--CSS
--JS
--GitHub Pages
+- Python 3
+- Python Essentials Template
+- Git & GitHub
+- Heroku
 
 
 
@@ -152,15 +126,13 @@ Technologies Used
 
 ### Content 
 
--All code written by me, except small references to MDN/Web Docs for syntax clarification.
--Gameplay inspiration from classic memory card games.
+- All code written by me, except standard Python documentation references.  
+- Logic inspired by classic calculator programs used in teaching Python fundamentals.
 
 ### Media
 
 
-- All card images used inside the /assets/images/ folder were either created by me or sourced from:
 
-Google Images
 
 
 
