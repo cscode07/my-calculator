@@ -1,3 +1,4 @@
+import sys
 def show_menu():
     print("\n=== CALCULATOR ===")
     print("1. Addition (+)")
@@ -58,4 +59,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if sys.stdin.isatty():
+        main()
+    else:
+        print("Running in non-interactive mode.")
