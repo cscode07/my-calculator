@@ -1,24 +1,21 @@
 # run.py
 
-from flask import Flask, request, jsonify
-import os   # necessário para pegar a porta do Heroku
+def show_menu():
+    print("\n=== CALCULATOR ===")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (*)")
+    print("4. Division (/)")
+    print("5. Exit")
 
-app = Flask(__name__)
+def get_number(message):
+    while True:
+        try:
+            return float(input(message))
+        except ValueError:
+            print("❌ Please enter a valid number.")
 
-# ---------------------------
-# Calculator logic
-# ---------------------------
-def calculate_logic(option, num1=None, num2=None):
-    """
-    Receives an option ("1"-"4") and two numbers.
-    Returns result or error message.
-    """
-    try:
-        num1 = float(num1)
-        num2 = float(num2)
-    except (TypeError, ValueError):
-        return "❌ Invalid numbers"
-
+def calculate(option, num1, num2):
     if option == "1":
         return num1 + num2
     elif option == "2":
@@ -29,40 +26,27 @@ def calculate_logic(option, num1=None, num2=None):
         if num2 == 0:
             return "❌ Error: division by zero."
         return num1 / num2
-    else:
-        return "❌ Invalid option"
 
-# ---------------------------
-# API routes
-# ---------------------------
-@app.route("/")
-def index():
-    return "Calculator API is running!"
+def main():
+    print("Welcome to the Python Calculator!")
 
-@app.route("/calculate", methods=["POST"])
-def calculate():
-    """
-    Receives JSON with:
-    {
-        "option": "1",
-        "num1": "10",
-        "num2": "5"
-    }
-    Returns JSON:
-    {
-        "result": 15
-    }
-    """
-    data = request.json
-    option = data.get("option")
-    num1 = data.get("num1")
-    num2 = data.get("num2")
-    result = calculate_logic(option, num1, num2)
-    return jsonify({"result": result})
+    while True:
+        show_menu()
+        option = input("Choose an option (1-5): ")
 
-# ---------------------------
-# Run locally or on Heroku
-# ---------------------------
+        if option == "5":
+            print("Thank you for using the calculator 👋")
+            break
+
+        if option not in ["1", "2", "3", "4"]:
+            print("❌ Invalid option.")
+            continue
+
+        num1 = get_number("Enter the first number: ")
+        num2 = get_number("Enter the second number: ")
+
+        result = calculate(option, num1, num2)
+        print(f"Result: {result}")
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Heroku fornece a porta
-    app.run(host="0.0.0.0", port=port, debug=True)
+    main()
